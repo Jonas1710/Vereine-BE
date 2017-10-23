@@ -25,7 +25,7 @@ class VereinController
         $view = new View('verein_update');
         $view->title = "Verein";
         $view->heading = "Verein bearbeiten";
-        $view->verein = $vereinRepository->readAll();
+        $view->verein = $vereinRepository->readById($_GET['id']);
         $view->display();
     }
 
