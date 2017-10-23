@@ -28,7 +28,20 @@ class VereinController
 
     public function doCreate()
     {
+      if ($_POST['send']) {
+          $name = $_POST['name'];
+          $kategorie = $_POST['kategorie'];
+          $mitgliederanzahl = $_POST['mitgliederanzahl'];
+          $bild = $_POST['bild'];
+          $gründungsjahr = $_POST['gründungsjahr'];
+          $beschreibung = $_POST['beschreibung'];
 
+          $vereinRepository = new VereinRepository();
+          $vereinRepository->create($name, $kategorie, $mitgliederanzahl, $bild, $gründungsjahr, $beschreibung);
+      }
+
+      // Anfrage an die URI /user weiterleiten (HTTP 302)
+      header('Location: /verein');
     }
 
     public function delete()

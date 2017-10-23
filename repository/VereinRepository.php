@@ -28,12 +28,12 @@ class VereinRepository extends Repository
      *
      * @throws Exception falls das Ausführen des Statements fehlschlägt
      */
-    public function create($name, $kategorie, $mitgliederanzahl, $bild, $gründungsjahr)
+    public function create($name, $kategorie, $mitgliederanzahl, $bild, $gründungsjahr, $beschreibung)
     {
-        $query = "INSERT INTO $this->tableName (name, kategorie, mitgliederanzahl, bild, gründungsjahr) VALUES (?, ?, ?, ?, ?)";
+        $query = "INSERT INTO $this->tableName (name, kategorie, mitgliederanzahl, bild, gründungsjahr, beschreibung) VALUES (?, ?, ?, ?, ?, ?)";
 
         $statement = ConnectionHandler::getConnection()->prepare($query);
-        $statement->bind_param('ssss', $name, $kategorie, $mitgliederanzahl, $bild, $gründungsjahr);
+        $statement->bind_param('ssisi', $name, $kategorie, $mitgliederanzahl, $bild, $gründungsjahr);
 
         if (!$statement->execute()) {
             throw new Exception($statement->error);
