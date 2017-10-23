@@ -29,12 +29,12 @@ class VereinController
     public function doCreate()
     {
       if ($_POST['send']) {
-          $name = $_POST['name'];
-          $kategorie = $_POST['kategorie'];
+          $name = htmlspecialchars($_POST['name']);
+          $kategorie = htmlspecialchars($_POST['kategorie']);
           $mitgliederanzahl = $_POST['mitgliederanzahl'];
-          $bild = $_POST['bild'];
+          $bild = htmlspecialchars($_POST['bild']);
           $gründungsjahr = $_POST['gründungsjahr'];
-          $beschreibung = $_POST['beschreibung'];
+          $beschreibung = htmlspecialchars($_POST['beschreibung']);
 
           $vereinRepository = new VereinRepository();
           $vereinRepository->create($name, $kategorie, $mitgliederanzahl, $bild, $gründungsjahr, $beschreibung);
