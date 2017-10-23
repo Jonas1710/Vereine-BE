@@ -14,7 +14,7 @@ class VereinController
         $view = new View('verein_index');
         $view->title = 'Verein';
         $view->heading = 'Verein';
-        $view->users = $vereinRepository->readAll();
+        $view->vereine = $vereinRepository->readAll();
         $view->display();
     }
 
