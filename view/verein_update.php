@@ -1,6 +1,12 @@
 <form class="form-horizontal" action="/verein/doUpdate" method="post">
 	<div class="component" data-html="true">
 		<div class="form-group">
+		  <label class="col-md-2 control-label" for="id"></label>
+		  <div class="col-md-4">
+		  	<input id="id" name="id" type="hidden" class="form-control input-md" value="<?php echo $verein->id ?>">
+		  </div>
+		</div>
+		<div class="form-group">
 		  <label class="col-md-2 control-label" for="name">Vereins Name</label>
 		  <div class="col-md-4">
 		  	<input id="name" name="name" type="text" placeholder="Vereins Name" class="form-control input-md" value="<?php echo $verein->name ?>">
