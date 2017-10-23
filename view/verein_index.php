@@ -3,10 +3,10 @@
   echo "<table class='vereinList'>";
   foreach($vereine as $verein) {
     if($counter % 2 == 0) {
-        echo "<tr class='evenElement'><td>" . $verein->name . " </td><td> " . $verein->kategorie . "</td><td>". $verein->gründungsjahr ."</td><td><a href='/verein/delete?id=". $verein->id ."'>Löschen</a></td></tr>";
+        echo "<tr class='evenElement'><td>" . $verein->name . " </td><td> " . $verein->kategorie . "</td><td>". $verein->gründungsjahr ."</td><td><a href='/verein/delete?id=". $verein->id ."'>Löschen</a> | <a href='/verein/update?id=". $verein->id ."'>Bearbeiten</a></td></tr>";
     }
     else {
-        echo "<tr><td>" . $verein->name . " </td><td> " . $verein->kategorie . "</td><td>". $verein->gründungsjahr . "</td><td><a href='/verein/delete?id=". $verein->id ."'>Löschen</a></td></tr>";
+        echo "<tr><td>" . $verein->name . " </td><td> " . $verein->kategorie . "</td><td>". $verein->gründungsjahr . "</td><td><a href='/verein/delete?id=". $verein->id ."'>Löschen</a> | <a href='/verein/update?id=". $verein->id ."'>Bearbeiten</a></td></tr>";
     }
     $counter++;
   }
