@@ -33,7 +33,7 @@ class VereinRepository extends Repository
         $query = "INSERT INTO $this->tableName (name, kategorie, mitgliederanzahl, bild, gründungsjahr, beschreibung) VALUES (?, ?, ?, ?, ?, ?)";
 
         $statement = ConnectionHandler::getConnection()->prepare($query);
-        $statement->bind_param('ssisi', $name, $kategorie, $mitgliederanzahl, $bild, $gründungsjahr);
+        $statement->bind_param('ssisis', $name, $kategorie, $mitgliederanzahl, $bild, $gründungsjahr, $beschreibung);
 
         if (!$statement->execute()) {
             throw new Exception($statement->error);
