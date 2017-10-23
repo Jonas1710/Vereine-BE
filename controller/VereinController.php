@@ -14,13 +14,13 @@ class VereinController
         $view = new View('verein_index');
         $view->title = 'Verein';
         $view->heading = 'Verein';
-        $view->users = $vereinRepository->readAll();
+        $view->vereine = $vereinRepository->readAll();
         $view->display();
     }
 
     public function create()
     {
-        $view = new View('user_create');
+        $view = new View('verein_create');
         $view->title = 'Verein erfassen';
         $view->heading = 'Verein erfassen';
         $view->display();
