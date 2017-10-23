@@ -20,7 +20,7 @@ class VereinController
 
     public function create()
     {
-        $view = new View('user_create');
+        $view = new View('verein_create');
         $view->title = 'Verein erfassen';
         $view->heading = 'Verein erfassen';
         $view->display();
