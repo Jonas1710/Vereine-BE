@@ -43,4 +43,18 @@ class VereinRepository extends Repository
 
         return $statement->insert_id;
     }
+
+    public function update( $id, $name, $kategorie, $mitgliederanzahl, $bild, $gründungsjahr, $beschreibung)
+    {
+        $query = "UPDATE $this->tableName set name=?, kategorie=?, mitgliederanzahl=?, bild=?, gründungsjahr=?, beschreibung=? WHERE id=?";
+
+        $statement = ConnectionHandler::getConnection()->prepare($query);
+        $statement->bind_param('ssisisi', $name, $kategorie, $mitgliederanzahl, $bild, $gründungsjahr, $beschreibung, $id);
+
+        if (!$statement->execute()) {
+            throw new Exception($statement->error);
+        }
+
+        return $statement->insert_id;
+    }
 }
