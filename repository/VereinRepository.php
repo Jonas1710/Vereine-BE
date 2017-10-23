@@ -13,7 +13,7 @@ class VereinRepository extends Repository
      * Diese Variable wird von der Klasse Repository verwendet, um generische
      * Funktionen zur Verfügung zu stellen.
      */
-    protected $tableName = 'user';
+    protected $tableName = 'verein';
 
     /**
      * Erstellt einen neuen benutzer mit den gegebenen Werten.
@@ -28,14 +28,12 @@ class VereinRepository extends Repository
      *
      * @throws Exception falls das Ausführen des Statements fehlschlägt
      */
-    public function create($firstName, $lastName, $email, $password)
+    public function create($name, $kategorie, $mitgliederanzahl, $bild, $gründungsjahr)
     {
-        $password = sha1($password);
-
-        $query = "INSERT INTO $this->tableName (firstName, lastName, email, password) VALUES (?, ?, ?, ?)";
+        $query = "INSERT INTO $this->tableName (name, kategorie, mitgliederanzahl, bild, gründungsjahr) VALUES (?, ?, ?, ?, ?)";
 
         $statement = ConnectionHandler::getConnection()->prepare($query);
-        $statement->bind_param('ssss', $firstName, $lastName, $email, $password);
+        $statement->bind_param('ssss', $name, $kategorie, $mitgliederanzahl, $bild, $gründungsjahr);
 
         if (!$statement->execute()) {
             throw new Exception($statement->error);
