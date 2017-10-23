@@ -55,6 +55,25 @@ class VereinController
       header('Location: /verein');
     }
 
+    public function doUpdate()
+    {
+      if ($_POST['send']) {
+          $id = htmlspecialchars($_POST['id']);
+          $name = htmlspecialchars($_POST['name']);
+          $kategorie = htmlspecialchars($_POST['kategorie']);
+          $mitgliederanzahl = $_POST['mitgliederanzahl'];
+          $bild = htmlspecialchars($_POST['bild']);
+          $gründungsjahr = $_POST['gründungsjahr'];
+          $beschreibung = htmlspecialchars($_POST['beschreibung']);
+
+          $vereinRepository = new VereinRepository();
+          $vereinRepository->update( $id, $name, $kategorie, $mitgliederanzahl, $bild, $gründungsjahr, $beschreibung);
+      }
+
+      // Anfrage an die URI /user weiterleiten (HTTP 302)
+      header('Location: /verein');
+    }
+
     public function delete()
     {
         $vereinRepository = new VereinRepository();
