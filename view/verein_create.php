@@ -33,7 +33,7 @@
 		<div class="form-group">
 		  <label class="col-md-2 control-label" for="beschreibung">Beschreibung</label>
 		  <div class="col-md-4">
-		  	<input id="beschreibung" name="beschreibung" type="textarea" placeholder="Beschreibung" class="form-control input-md">
+		  	<textarea id="beschreibung" name="beschreibung" type="text" placeholder="Beschreibung" class="form-control input-md"></textarea>
 		  </div>
 		</div>
 		<div class="form-group">
