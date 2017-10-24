@@ -117,16 +117,16 @@ class VereinController
           }
           else {
             $vereinRepository = new VereinRepository();
-            $vereinRepository->create($name, $kategorie, $mitgliederanzahl, $bild, $gründungsjahr, $beschreibung);
+            $newid = $vereinRepository->create($name, $kategorie, $mitgliederanzahl, $bild, $gründungsjahr, $beschreibung);
 
-            header('Location: /verein');
+            header('Location: /verein/detail?id='.$newid);
           }
         }
     }
 
     public function doUpdate()
     {
-      if ($_POST['send']) {
+      if ($_POST['safe']) {
           $id = htmlspecialchars($_POST['id']);
           $name = htmlspecialchars($_POST['name']);
           $kategorie = htmlspecialchars($_POST['kategorie']);
@@ -188,7 +188,7 @@ class VereinController
             $vereinRepository = new VereinRepository();
             $vereinRepository->update( $id,$name, $kategorie, $mitgliederanzahl, $bild, $gründungsjahr, $beschreibung);
 
-            header('Location: /verein');
+            header('Location: /verein/detail?id='.$id);
           }
         }
     }

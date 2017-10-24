@@ -74,6 +74,32 @@ td {
   text-align: center;
 }
 
+.details-image {
+  width: 20%;
+  display: block;
+  float: left;
+}
+
+.image {
+  border-radius: 50%;
+  width: 75%;
+}
+
+.container-detail {
+  -webkit-box-shadow: 3px 3px 12px 3px rgba(0,0,0,0.25);
+-moz-box-shadow: 3px 3px 12px 3px rgba(0,0,0,0.25);
+box-shadow: 3px 3px 12px 3px rgba(0,0,0,0.25);
+height: max-content;
+}
+
+#beschreibung {
+
+}
+
+.details-image {
+  width: 20%;
+  display: inline-block;
+}
+
 textarea {
   resize: vertical;
-}
