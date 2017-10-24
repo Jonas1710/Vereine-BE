@@ -9,6 +9,11 @@ body {
 
 tr {
   font-size: 1.4em;
+  cursor: pointer;
+}
+
+tr:hover {
+  background-color: #d7d7d7;
 }
 
 .evenElement {
@@ -94,3 +99,6 @@ height: max-content;
   width: 20%;
   display: inline-block;
 }
+
+textarea {
+  resize: vertical;
