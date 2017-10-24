@@ -3,13 +3,13 @@
 		<div class="form-group">
 		  <label class="col-md-2 control-label" for="name">Vereins Name</label>
 		  <div class="col-md-4">
-		  	<input id="name" name="name" type="text" placeholder="Vereins Name" class="form-control input-md">
+		  	<input id="name" name="name" type="text" placeholder="Vereins Name" class="form-control input-md" required maxlength="30">
 		  </div>
 		</div>
 		<div class="form-group">
 		  <label class="col-md-2 control-label" for="kategorie">Kategorie</label>
 		  <div class="col-md-4">
-		  	<input id="kategorie" name="kategorie" type="text" placeholder="Kategorie" class="form-control input-md">
+		  	<input id="kategorie" name="kategorie" type="text" placeholder="Kategorie (z.B. Fussball)" class="form-control input-md" required maxlength="30">
 		  </div>
 		</div>
 		<div class="form-group">

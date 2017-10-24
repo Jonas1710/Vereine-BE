@@ -70,12 +70,59 @@ class VereinController
           $gründungsjahr = $_POST['gründungsjahr'];
           $beschreibung = htmlspecialchars($_POST['beschreibung']);
 
-          $vereinRepository = new VereinRepository();
-          $vereinRepository->create($name, $kategorie, $mitgliederanzahl, $bild, $gründungsjahr, $beschreibung);
+          $error_message = "";
+          // validierung
+          if(strlen($name) < 2) {
+            $error_message .= "Name zu kurz<br><br>";
+          }
+          if(strlen($name) > 30) {
+            $error_message .= "Name zu lang<br><br>";
+          }
+          if (preg_match("/[\'^£$%&*()}{@#~?><>,|=_+¬-]/", $name))
+          {
+            $error_message .= "Name darf keine Sonderzeichen enthalten<br><br>";
+          }
+          if(strlen($kategorie) < 2) {
+            $error_message .= "Kategorie zu kurz<br><br>";
+          }
+          if(strlen($kategorie) > 30) {
+            $error_message .= "Kategorie zu lang<br><br>";
+          }
+          if (preg_match("/[\'^£$%&*()}{@#~?><>,|=_+¬-]/", $kategorie))
+          {
+            $error_message .= "Kategorie darf keine Sonderzeichen enthalten<br><br>";
+          }
+          if(!is_numeric($mitgliederanzahl)) {
+            $error_message .= "Mitgliederanzahl muss eine Zahl sein<br><br>"
+          }
+          else {
+            if($mitgliederanzahl > 10000000) {
+                $error_message .= "Mitgliederanzahl ist zu Gross<br><br>"
+            }
+          }
+          if(!is_numeric($gründungsjahr)) {
+            $error_message .= "Gründungsjahr muss eine Zahl sein<br><br>"
+          }
+          if(strlen($name) > 1000) {
+            $error_message .= "Beschreibung zu lang<br><br>";
+          }
+
+          if(!empty($error_message)){
+              $view = new View("fehler");
+              $view->title = "Fehler";
+              $view->heading = "Fehler";
+              $view->error_message = $error_message;
+              $view->display();
+
+          }
+          else {
+            $vereinRepository = new VereinRepository();
+            $vereinRepository->create($name, $kategorie, $mitgliederanzahl, $bild, $gründungsjahr, $beschreibung);
+
+            header('Location: /verein');
+          }
       }
 
-      // Anfrage an die URI /user weiterleiten (HTTP 302)
-      header('Location: /verein');
     }
 
     public function doUpdate()

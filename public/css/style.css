@@ -9,6 +9,11 @@ body {
 
 tr {
   font-size: 1.4em;
+  cursor: pointer;
+}
+
+tr:hover {
+  background-color: #d7d7d7;
 }
 
 .evenElement {
@@ -66,4 +71,8 @@ td {
 }
 .categoryList {
   text-align: center;
+}
+
+textarea {
+  resize: vertical;
 }
