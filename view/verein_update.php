@@ -1,6 +1,12 @@
 <form class="form-horizontal" action="/verein/doUpdate" method="post">
 	<div class="component" data-html="true">
 		<div class="form-group">
+		  <label class="col-md-2 control-label" for="id"></label>
+		  <div class="col-md-4">
+		  	<input id="id" name="id" type="hidden" class="form-control input-md" value="<?php echo $verein->id ?>">
+		  </div>
+		</div>
+		<div class="form-group">
 		  <label class="col-md-2 control-label" for="name">Vereins Name</label>
 		  <div class="col-md-4">
 		  	<input id="name" name="name" type="text" placeholder="Vereins Name" class="form-control input-md" value="<?php echo $verein->name ?>">
@@ -33,7 +39,7 @@
 		<div class="form-group">
 		  <label class="col-md-2 control-label" for="beschreibung">Beschreibung</label>
 		  <div class="col-md-4">
-		  	<textarea id="beschreibung" name="beschreibung" type="text" placeholder="Beschreibung" class="form-control input-md" value="<?php echo $verein->beschreibung ?>"></textarea>
+		  	<textarea id="beschreibung" name="beschreibung" type="text" placeholder="Beschreibung" class="form-control input-md"><?php echo $verein->beschreibung ?></textarea>
 		  </div>
 		</div>
 		<div class="form-group">
