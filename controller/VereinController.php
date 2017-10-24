@@ -25,7 +25,7 @@ class VereinController
       $view = new View('verein_index');
       $view->kategorie = $_GET['kategorie'];
       $view->title = 'Kategorie';
-      $view->heading = 'Kategorie';
+      $view->heading = 'Kategorie: '. $_GET['kategorie'];
       $view->vereine = $vereinRepository->getByCategory($view->kategorie);
       $view->display();
     }
