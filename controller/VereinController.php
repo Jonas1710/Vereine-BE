@@ -167,6 +167,11 @@ class VereinController
           if(!is_numeric($gründungsjahr)) {
             $error_message .= "Gründungsjahr muss eine Zahl sein<br><br>";
           }
+          else {
+            if($gründungsjahr < 0) {
+              $error_message .= "Gründungsjahr darf nicht negativ sein";
+            }
+          }
           if(strlen($name) > 1000) {
             $error_message .= "Beschreibung zu lang<br><br>";
           }
