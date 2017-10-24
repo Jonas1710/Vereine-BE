@@ -15,7 +15,7 @@
 		<div class="form-group">
 		  <label class="col-md-2 control-label" for="mitgliederanzahl">Anzahl Mitglieder</label>
 		  <div class="col-md-4">
-		  	<input id="mitgliederanzahl" name="mitgliederanzahl" type="number" placeholder="Anzahl Mitglieder" class="form-control input-md">
+		  	<input id="mitgliederanzahl" name="mitgliederanzahl" type="number" placeholder="Anzahl Mitglieder" class="form-control input-md" max="10000000" min="1">
 		  </div>
 		</div>
 		<div class="form-group">
@@ -27,7 +27,7 @@
 		<div class="form-group">
 		  <label class="col-md-2 control-label" for="gründungsjahr">Gründungsjahr</label>
 		  <div class="col-md-4">
-		  	<input id="gründungsjahr" name="gründungsjahr" type="number" placeholder="Gründungsjahr" value="2000" class="form-control input-md">
+		  	<input id="gründungsjahr" name="gründungsjahr" type="number" placeholder="Gründungsjahr" value="2000" class="form-control input-md" min="0" max="9999">
 		  </div>
 		</div>
 		<div class="form-group">

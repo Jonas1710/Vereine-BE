@@ -21,7 +21,7 @@
 		<div class="form-group">
 		  <label class="col-md-2 control-label" for="mitgliederanzahl">Anzahl Mitglieder</label>
 		  <div class="col-md-4">
-		  	<input id="mitgliederanzahl" name="mitgliederanzahl" type="number" placeholder="Anzahl Mitglieder" class="form-control input-md" value="<?php echo $verein->mitgliederanzahl ?>">
+		  	<input id="mitgliederanzahl" name="mitgliederanzahl" type="number" placeholder="Anzahl Mitglieder" class="form-control input-md" value="<?php echo $verein->mitgliederanzahl ?>" max="10000000" min="1">
 		  </div>
 		</div>
 		<div class="form-group">
@@ -33,7 +33,7 @@
 		<div class="form-group">
 		  <label class="col-md-2 control-label" for="gründungsjahr">Gründungsjahr</label>
 		  <div class="col-md-4">
-		  	<input id="gründungsjahr" name="gründungsjahr" type="number" placeholder="Gründungsjahr" class="form-control input-md" value="<?php echo $verein->gründungsjahr ?>">
+		  	<input id="gründungsjahr" name="gründungsjahr" type="number" placeholder="Gründungsjahr" class="form-control input-md" value="<?php echo $verein->gründungsjahr ?>" min="0" max="9999">
 		  </div>
 		</div>
 		<div class="form-group">

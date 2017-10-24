@@ -7,12 +7,19 @@ body {
   width: 80%;
 }
 
-tr {
+th {
+  font-size: 1.5em;
+}
+tr td:last-child {
+  text-align: center;
+}
+
+tr:not(:first-child) {
   font-size: 1.4em;
   cursor: pointer;
 }
 
-tr:hover {
+tr:not(:first-child):hover {
   background-color: #d7d7d7;
 }
 
@@ -103,3 +110,8 @@ height: max-content;
 
 textarea {
   resize: vertical;
+}
+
+.navbar-brand {
+  font-size: 21px;
+}
