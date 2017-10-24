@@ -25,7 +25,7 @@ class VereinController
       $view = new View('verein_index');
       $view->kategorie = $_GET['kategorie'];
       $view->title = 'Kategorie';
-      $view->heading = 'Kategorie';
+      $view->heading = 'Kategorie: '. $_GET['kategorie'];
       $view->vereine = $vereinRepository->getByCategory($view->kategorie);
       $view->display();
     }
@@ -136,21 +136,31 @@ class VereinController
           $beschreibung = htmlspecialchars($_POST['beschreibung']);
           $error_message = "";
           // validierung
-          if(strlen($name) < 2) {
-            $error_message .= "Name zu kurz<br><br>";
+          if(!isset($name)) {
+            $error_message .= "Name Muss eingegeben werden<br><br>";
           }
-          if(strlen($name) > 30) {
-            $error_message .= "Name zu lang<br><br>";
+          else {
+            if(strlen($name) < 2) {
+              $error_message .= "Name zu kurz<br><br>";
+            }
+            if(strlen($name) > 30) {
+              $error_message .= "Name zu lang<br><br>";
+            }
+            if (preg_match("/[\'^£$%&*()}{@#~?><>,|=_+¬-]/", $name))
+            {
+              $error_message .= "Name darf keine Sonderzeichen enthalten<br><br>";
+            }
           }
-          if (preg_match("/[\'^£$%&*()}{@#~?><>,|=_+¬-]/", $name))
-          {
-            $error_message .= "Name darf keine Sonderzeichen enthalten<br><br>";
+          if(!isset($kategorie)) {
+            $error_message .= "Kategorie Muss eingegeben werden<br><br>";
           }
-          if(strlen($kategorie) < 2) {
-            $error_message .= "Kategorie zu kurz<br><br>";
-          }
-          if(strlen($kategorie) > 30) {
-            $error_message .= "Kategorie zu lang<br><br>";
+          else {
+            if(strlen($kategorie) < 2) {
+              $error_message .= "Kategorie zu kurz<br><br>";
+            }
+            if(strlen($kategorie) > 30) {
+              $error_message .= "Kategorie zu lang<br><br>";
+            }
           }
           if (preg_match("/[\'^£$%&*()}{@#~?><>,|=_+¬-]/", $kategorie))
           {
@@ -166,6 +176,14 @@ class VereinController
           }
           if(!is_numeric($gründungsjahr)) {
             $error_message .= "Gründungsjahr muss eine Zahl sein<br><br>";
+          }
+          else {
+            if($gründungsjahr < 0) {
+              $error_message .= "Gründungsjahr darf nicht negativ sein";
+            }
+            if($gründungsjahr > 9999) {
+              $error_message .= "Gründungsjahr ist zu hoch";
+            }
           }
           if(strlen($name) > 1000) {
             $error_message .= "Beschreibung zu lang<br><br>";

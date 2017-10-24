@@ -4,10 +4,10 @@
   echo "<tr><th>Vereinsname</th><th>Kategorie</th><th>Gründungsjahr</th></tr>";
   foreach($vereine as $verein) {
     if($counter % 2 == 0) {
-        echo "<tr class='evenElement' data-href='/verein/detail?id=".$verein->id."'><td data-id=".$verein->id."><a href='/verein/detail?id=". $verein->id."'>" . $verein->name . " </a></td><td>". $verein->kategorie . "</td><td>". $verein->gründungsjahr ."</td><td><a href='/verein/delete?id=". $verein->id ."'>Löschen</a> | <a href='/verein/update?id=". $verein->id ."'>Bearbeiten</a></td></tr>";
+        echo "<tr class='evenElement clickableElement' data-href='/verein/detail?id=".$verein->id."'><td data-id=".$verein->id."><a href='/verein/detail?id=". $verein->id."'>" . $verein->name . " </a></td><td>". $verein->kategorie . "</td><td>". $verein->gründungsjahr ."</td><td><a href='/verein/delete?id=". $verein->id ."'>Löschen</a> | <a href='/verein/update?id=". $verein->id ."'>Bearbeiten</a></td></tr>";
     }
     else {
-        echo "<tr data-href='/verein/detail?id=".$verein->id."'><td><a href='/verein/detail?id=". $verein->id."'>" . $verein->name . "</a></td><td>" . $verein->kategorie . "</td><td>". $verein->gründungsjahr . "</td><td><a href='/verein/delete?id=". $verein->id ."'>Löschen</a> | <a href='/verein/update?id=". $verein->id ."'>Bearbeiten</a></td></tr>";
+        echo "<tr class='clickableElement' data-href='/verein/detail?id=".$verein->id."'><td><a href='/verein/detail?id=". $verein->id."'>" . $verein->name . "</a></td><td>" . $verein->kategorie . "</td><td>". $verein->gründungsjahr . "</td><td><a href='/verein/delete?id=". $verein->id ."'>Löschen</a> | <a href='/verein/update?id=". $verein->id ."'>Bearbeiten</a></td></tr>";
     }
     $counter++;
   }
@@ -15,7 +15,7 @@
 ?>
 <script>
   $(document).ready(function() {
-      $("tr").click(function() {
+      $(".clickableElement").click(function() {
           window.location = $(this).data("href");
       });
   });
