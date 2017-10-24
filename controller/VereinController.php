@@ -117,9 +117,9 @@ class VereinController
           }
           else {
             $vereinRepository = new VereinRepository();
-            $vereinRepository->create($name, $kategorie, $mitgliederanzahl, $bild, $gründungsjahr, $beschreibung);
+            $newid = $vereinRepository->create($name, $kategorie, $mitgliederanzahl, $bild, $gründungsjahr, $beschreibung);
 
-            header('Location: /verein');
+            header('Location: /verein/detail?id='.$newid);
           }
       }
 
