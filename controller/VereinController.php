@@ -93,15 +93,15 @@ class VereinController
             $error_message .= "Kategorie darf keine Sonderzeichen enthalten<br><br>";
           }
           if(!is_numeric($mitgliederanzahl)) {
-            $error_message .= "Mitgliederanzahl muss eine Zahl sein<br><br>"
+            $error_message .= "Mitgliederanzahl muss eine Zahl sein<br><br>";
           }
           else {
             if($mitgliederanzahl > 10000000) {
-                $error_message .= "Mitgliederanzahl ist zu Gross<br><br>"
+                $error_message .= "Mitgliederanzahl ist zu Gross<br><br>";
             }
           }
           if(!is_numeric($gründungsjahr)) {
-            $error_message .= "Gründungsjahr muss eine Zahl sein<br><br>"
+            $error_message .= "Gründungsjahr muss eine Zahl sein<br><br>";
           }
           if(strlen($name) > 1000) {
             $error_message .= "Beschreibung zu lang<br><br>";
@@ -121,8 +121,7 @@ class VereinController
 
             header('Location: /verein');
           }
-      }
-
+        }
     }
 
     public function doUpdate()
@@ -135,13 +134,58 @@ class VereinController
           $bild = htmlspecialchars($_POST['bild']);
           $gründungsjahr = $_POST['gründungsjahr'];
           $beschreibung = htmlspecialchars($_POST['beschreibung']);
+          $error_message = "";
+          // validierung
+          if(strlen($name) < 2) {
+            $error_message .= "Name zu kurz<br><br>";
+          }
+          if(strlen($name) > 30) {
+            $error_message .= "Name zu lang<br><br>";
+          }
+          if (preg_match("/[\'^£$%&*()}{@#~?><>,|=_+¬-]/", $name))
+          {
+            $error_message .= "Name darf keine Sonderzeichen enthalten<br><br>";
+          }
+          if(strlen($kategorie) < 2) {
+            $error_message .= "Kategorie zu kurz<br><br>";
+          }
+          if(strlen($kategorie) > 30) {
+            $error_message .= "Kategorie zu lang<br><br>";
+          }
+          if (preg_match("/[\'^£$%&*()}{@#~?><>,|=_+¬-]/", $kategorie))
+          {
+            $error_message .= "Kategorie darf keine Sonderzeichen enthalten<br><br>";
+          }
+          if(!is_numeric($mitgliederanzahl)) {
+            $error_message .= "Mitgliederanzahl muss eine Zahl sein<br><br>";
+          }
+          else {
+            if($mitgliederanzahl > 10000000) {
+                $error_message .= "Mitgliederanzahl ist zu Gross<br><br>";
+            }
+          }
+          if(!is_numeric($gründungsjahr)) {
+            $error_message .= "Gründungsjahr muss eine Zahl sein<br><br>";
+          }
+          if(strlen($name) > 1000) {
+            $error_message .= "Beschreibung zu lang<br><br>";
+          }
 
-          $vereinRepository = new VereinRepository();
-          $vereinRepository->update( $id, $name, $kategorie, $mitgliederanzahl, $bild, $gründungsjahr, $beschreibung);
-      }
+          if(!empty($error_message)){
+            $view = new View("fehler");
+            $view->title = "Fehler";
+            $view->heading = "Fehler";
+            $view->error_message = $error_message;
+            $view->display();
 
-      // Anfrage an die URI /user weiterleiten (HTTP 302)
-      header('Location: /verein');
+          }
+          else {
+            $vereinRepository = new VereinRepository();
+            $vereinRepository->update( $id,$name, $kategorie, $mitgliederanzahl, $bild, $gründungsjahr, $beschreibung);
+
+            header('Location: /verein');
+          }
+        }
     }
 
     public function delete()
