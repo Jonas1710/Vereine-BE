@@ -35,9 +35,9 @@ class VereinController
         $vereinRepository = new VereinRepository();
 
         $view = new View('verein_detail');
-        $view->title = "Verein";
+        $view->heading = "";
         $view->verein = $vereinRepository->readById($_GET['id']);
-        $view->heading = $view->verein->name;
+        $view->title = $view->verein->name;
         $view->display();
     }
 
