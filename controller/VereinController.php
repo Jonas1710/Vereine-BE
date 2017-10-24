@@ -18,21 +18,6 @@ class VereinController
         $view->display();
     }
 
-<<<<<<< HEAD
-
-    public function detail()
-    {
-        $vereinRepository = new VereinRepository();
-
-        $view = new View('verein_detail');
-        $view->title = "Verein";
-        $view->verein = $vereinRepository->readById($_GET['id']);
-        $view->heading = $view->verein->name;
-        $view->display();
-    }
-
-
-=======
     public function category()
     {
       $vereinRepository = new VereinRepository();
@@ -45,7 +30,17 @@ class VereinController
       $view->display();
     }
 
->>>>>>> 79ec442d2ab5ca28b393bdc6b2d011ef9ba2d2b3
+    public function detail()
+    {
+        $vereinRepository = new VereinRepository();
+
+        $view = new View('verein_detail');
+        $view->title = "Verein";
+        $view->verein = $vereinRepository->readById($_GET['id']);
+        $view->heading = $view->verein->name;
+        $view->display();
+    }
+
     public function update ()
     {
         $vereinRepository = new VereinRepository();
