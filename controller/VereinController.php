@@ -18,6 +18,18 @@ class VereinController
         $view->display();
     }
 
+    public function category()
+    {
+      $vereinRepository = new VereinRepository();
+
+      $view = new View('verein_index');
+      $view->kategorie = $_GET['kategorie'];
+      $view->title = 'Kategorie';
+      $view->heading = 'Kategorie';
+      $view->vereine = $vereinRepository->getByCategory($view->kategorie);
+      $view->display();
+    }
+
     public function update ()
     {
         $vereinRepository = new VereinRepository();
