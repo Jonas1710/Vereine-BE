@@ -96,7 +96,7 @@ class VereinController
           $beschreibung = htmlspecialchars($_POST['beschreibung']);
 
 
-          
+          //Fileupload wurde von W3CSchools übernomen
           $target_dir = "uploads/";
           $target_file = $target_dir . basename($_FILES["img"]["name"]);
           $uploadOk = 1;
@@ -188,11 +188,15 @@ class VereinController
           else {
             $vereinRepository = new VereinRepository();
             $newid = $vereinRepository->create($name, $kategorie, $mitgliederanzahl, $gründungsjahr, $beschreibung, $target_file);
+
+            // Anfrage an die URI /verein/detail mit der id des erstellten Vereins weiterleiten (HTTP 302)
             header('Location: /verein/detail?id='.$newid);
           }
         }
     }
 
+
+    //Post: Updated und validiert das Formular in die Datenbank
     public function doUpdate()
     {
       if ($_POST['safe']) {
@@ -204,7 +208,7 @@ class VereinController
           $beschreibung = htmlspecialchars($_POST['beschreibung']);
           $error_message = "";
 
-
+          //Fileupload wurde von W3CSchools übernomen
           $target_dir = "uploads/";
           $target_file = $target_dir . basename($_FILES["img"]["name"]);
           $uploadOk = 1;
@@ -314,11 +318,14 @@ class VereinController
             $vereinRepository = new VereinRepository();
             $vereinRepository->update( $id,$name, $kategorie, $mitgliederanzahl, $gründungsjahr, $beschreibung, $target_file);
 
+            // Anfrage an die URI /verein/detail mit der id des editierten Vereins weiterleiten (HTTP 302)
             header('Location: /verein/detail?id='.$id);
           }
         }
     }
 
+    //Get: Löscht Verein mit bestimmter id
+    //@param get $id bestimmte id
     public function delete()
     {
         $vereinRepository = new VereinRepository();
