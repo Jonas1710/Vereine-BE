@@ -1,4 +1,4 @@
-<form class="form-horizontal" action="/verein/doUpdate" method="post">
+<form class="form-horizontal" action="/verein/doUpdate" method="post" enctype="multipart/form-data">
 	<div class="component" data-html="true">
 		<div class="form-group">
 		  <label class="col-md-2 control-label" for="id"></label>
@@ -27,7 +27,7 @@
 		<div class="form-group">
 		  <label class="col-md-2 control-label" for="bild">Bild</label>
 		  <div class="col-md-4">
-		  	<input id="bild" name="bild" type="file" placeholder="bild" class="form-control input-md" value="<?php echo $verein->bild ?>">
+		  	<input id="bild" name="img" type="file" placeholder="img" class="form-control input-md" value="<?php echo $verein->bild ?>">
 		  </div>
 		</div>
 		<div class="form-group">

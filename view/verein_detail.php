@@ -1,7 +1,14 @@
 
 <div class="container-detail">
 		<div class="details-image">
-    		<img class="image" src="/images/NoImage.png" alt="Bild konnte nicht geladen werden" />
+    		<img class="image" <?php
+				if($verein->bild!= null){
+					echo "src='/".$verein->bild."'";
+				}
+				else {
+					echo "src='/images/NoImage.png'";
+				}
+				?> alt="Bild konnte nicht geladen werden" />
 		</div>
 		<div class="info-container">
 			<h1><?php echo $verein->name; ?></h1>

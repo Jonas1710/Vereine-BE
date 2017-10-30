@@ -30,12 +30,12 @@ class VereinRepository extends Repository
      *
      * @throws Exception falls das Ausführen des Statements fehlschlägt
      */
-    public function create($name, $kategorie, $mitgliederanzahl, $bild, $gründungsjahr, $beschreibung)
+    public function create($name, $kategorie, $mitgliederanzahl, $gründungsjahr, $beschreibung, $bild)
     {
-        $query = "INSERT INTO $this->tableName (name, kategorie, mitgliederanzahl, bild, gründungsjahr, beschreibung) VALUES (?, ?, ?, ?, ?, ?)";
+        $query = "INSERT INTO $this->tableName (name, kategorie, mitgliederanzahl,  gründungsjahr, beschreibung, bild) VALUES (?, ?, ?,  ?, ?, ?)";
 
         $statement = ConnectionHandler::getConnection()->prepare($query);
-        $statement->bind_param('ssisis', $name, $kategorie, $mitgliederanzahl, $bild, $gründungsjahr, $beschreibung);
+        $statement->bind_param('ssiiss', $name, $kategorie, $mitgliederanzahl,  $gründungsjahr, $beschreibung, $bild);
 
         if (!$statement->execute()) {
             throw new Exception($statement->error);
@@ -44,7 +44,7 @@ class VereinRepository extends Repository
         return $statement->insert_id;
     }
 
-    public function update( $id, $name, $kategorie, $mitgliederanzahl, $bild, $gründungsjahr, $beschreibung)
+    public function update( $id, $name, $kategorie, $mitgliederanzahl, $gründungsjahr, $beschreibung, $bild)
     {
         $query = "UPDATE $this->tableName set name=?, kategorie=?, mitgliederanzahl=?, bild=?, gründungsjahr=?, beschreibung=? WHERE id=?";
 

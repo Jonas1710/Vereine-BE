@@ -1,4 +1,4 @@
-<form class="form-horizontal" action="/verein/doCreate" method="post">
+<form class="form-horizontal" action="/verein/doCreate" method="post" enctype="multipart/form-data">
 	<div class="component" data-html="true">
 		<div class="form-group">
 		  <label class="col-md-2 control-label" for="name">Vereins Name</label>
@@ -21,7 +21,7 @@
 		<div class="form-group">
 		  <label class="col-md-2 control-label" for="bild">Bild</label>
 		  <div class="col-md-4">
-		  	<input id="bild" name="bild" type="file" placeholder="bild" class="form-control input-md">
+		  	<input id="bild" name="img" type="file" class="form-control input-md">
 		  </div>
 		</div>
 		<div class="form-group">
@@ -39,7 +39,7 @@
 		<div class="form-group">
 	      <label class="col-md-2 control-label" for="send">&nbsp;</label>
 		  <div class="col-md-4">
-		    <input id="send" name="send" type="submit" class="btn btn-primary">
+		    <input id="send" name="submit" type="submit" class="btn btn-primary">
 		  </div>
 		</div>
 	</div>
