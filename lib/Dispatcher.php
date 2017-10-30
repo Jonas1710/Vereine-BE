@@ -30,6 +30,12 @@ class Dispatcher
     {
         // Die URI wird aus dem $_SERVER Array ausgelesen und in ihre
         //   Einzelteile zerlegt.
+<<<<<<< HEAD
+=======
+
+        // /verien/index/foo --> ['verein', 'index', 'foo']
+
+>>>>>>> d0fcbabde344b40e382702a722e5aab66b45498c
         $uri = $_SERVER['REQUEST_URI'];
         $uri = strtok($uri, '?'); // Erstes ? und alles danach abschneiden
         $uri = trim($uri, '/'); // Alle / am anfang und am Ende der URI abschneiden

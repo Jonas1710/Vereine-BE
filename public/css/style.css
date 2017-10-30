@@ -149,3 +149,20 @@ li a {
 .currentImg {
   margin-top: 8px;
 }
+
+.btn-info {
+    color: #fff;
+    background-color: #33aaff;
+    border-color: #33aaff;
+}
+
+#searchTerm {
+    width: 60%;
+    display: inline-block;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #33aaff;
+    border-color: #33aaff;
+}
