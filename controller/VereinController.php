@@ -82,7 +82,7 @@ class VereinController
           $beschreibung = htmlspecialchars($_POST['beschreibung']);
 
 
-
+          //Fileupload wurde von W3C schools übernommen
           $target_dir = "uploads/";
           $target_file = $target_dir . basename($_FILES["img"]["name"]);
           $uploadOk = 1;
@@ -190,7 +190,7 @@ class VereinController
           $beschreibung = htmlspecialchars($_POST['beschreibung']);
           $error_message = "";
 
-
+          //Fileupload wurde von W3C schools übernommen
           $target_dir = "uploads/";
           $target_file = $target_dir . basename($_FILES["img"]["name"]);
           $uploadOk = 1;
