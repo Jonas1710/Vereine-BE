@@ -18,6 +18,18 @@ class VereinController
         $view->display();
     }
 
+    public function search()
+    {
+      $vereinRepository = new VereinRepository();
+      $searchTerm = $_GET['searchTerm'];
+      $view = new View('verein_index');
+      $view->heading = 'Suchbegriff: '. $searchTerm;
+      $view->title = 'Vereine';
+      $view->vereine = $vereinRepository->search($searchTerm);
+
+      $view->display();
+    }
+
     public function category()
     {
       $vereinRepository = new VereinRepository();
@@ -88,7 +100,7 @@ class VereinController
           if(strlen($kategorie) > 30) {
             $error_message .= "Kategorie zu lang<br><br>";
           }
-          if (preg_match("/[\'^£$%&*()}{@#~?><>,|=_+¬-]/", $kategorie))
+          if (preg_match("/[\'^£$%&*()}{@#~?><>,|=_+¬]/", $kategorie))
           {
             $error_message .= "Kategorie darf keine Sonderzeichen enthalten<br><br>";
           }
@@ -162,7 +174,7 @@ class VereinController
               $error_message .= "Kategorie zu lang<br><br>";
             }
           }
-          if (preg_match("/[\'^£$%&*()}{@#~?><>,|=_+¬-]/", $kategorie))
+          if (preg_match("/[\'^£$%&*()}{@#~?><>,|=_+¬]/", $kategorie))
           {
             $error_message .= "Kategorie darf keine Sonderzeichen enthalten<br><br>";
           }
