@@ -2,18 +2,18 @@
 <div class="container-detail">
 		<div class="details-image">
     		<img class="image" <?php
-				if($verein->bild!= null){
-					echo "src='/".$verein->bild."'";
+				if($verein->bild==  "uploads/"){
+					echo "src='/images/NoImage.png'";
 				}
 				else {
-					echo "src='/images/NoImage.png'";
+					echo "src='/".$verein->bild."'";
 				}
 				?> alt="Bild konnte nicht geladen werden" />
 		</div>
 		<div class="info-container">
 			<h1><?php echo $verein->name; ?></h1>
 			<p>
-				Anzahl Mitgieder: <?php echo $verein->mitgliederanzahl; ?>
+				Anzahl Mitglieder: <?php echo $verein->mitgliederanzahl; ?>
 			</p>
 			<p>
 				Gründungsjahr: <?php echo $verein->gründungsjahr; ?>

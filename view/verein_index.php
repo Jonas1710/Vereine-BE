@@ -1,4 +1,7 @@
-<input id="searchTerm" type="search" placeholder="Suchbegriff"><input id="searchButton" type="button" value="Suchen">
+  <div class="col-md-4">
+      <input id="searchTerm" type="search" placeholder="Suchbegriff" class="form-control input-md"><button id="searchButton" type="button" class="btn btn-info"><span class="glyphicon glyphicon-search"></span></button>
+  </div>
+
 <?php
   $counter = 2;
   echo "<table class='vereinList'>";
