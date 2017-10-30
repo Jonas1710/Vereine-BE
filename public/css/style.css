@@ -144,3 +144,8 @@ li a {
 .navbar {
   min-height: 55px;
 }
+
+
+.currentImg {
+  margin-top: 8px;
+}

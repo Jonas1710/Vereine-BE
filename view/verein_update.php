@@ -27,6 +27,7 @@
 		<div class="form-group">
 		  <label class="col-md-2 control-label" for="bild">Bild</label>
 		  <div class="col-md-4">
+				<p class="currentImg"><?php echo substr($verein->bild, 8) ?></p>
 		  	<input id="bild" name="img" type="file" class="form-control input-md">
 		  </div>
 		</div>
