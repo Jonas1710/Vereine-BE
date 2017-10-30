@@ -12,8 +12,8 @@ class VereinController
         $vereinRepository = new VereinRepository();
 
         $view = new View('verein_index');
-        $view->title = 'Verein';
-        $view->heading = 'Verein';
+        $view->title = 'Vereine';
+        $view->heading = 'Vereine';
         $view->vereine = $vereinRepository->readAll();
         $view->display();
     }
@@ -78,7 +78,7 @@ class VereinController
           if(strlen($name) > 30) {
             $error_message .= "Name zu lang<br><br>";
           }
-          if (preg_match("/[\'^£$%&*()}{@#~?><>,|=_+¬-]/", $name))
+          if (preg_match("/[\'^£$%&*()}{@#~?><>,|=_+¬]/", $name))
           {
             $error_message .= "Name darf keine Sonderzeichen enthalten<br><br>";
           }
@@ -146,7 +146,7 @@ class VereinController
             if(strlen($name) > 30) {
               $error_message .= "Name zu lang<br><br>";
             }
-            if (preg_match("/[\'^£$%&*()}{@#~?><>,|=_+¬-]/", $name))
+            if (preg_match("/[\'^£$%&*()}{@#~?><>,|=_+¬]/", $name))
             {
               $error_message .= "Name darf keine Sonderzeichen enthalten<br><br>";
             }
@@ -211,7 +211,7 @@ class VereinController
         $vereinRepository = new VereinRepository();
         $vereinRepository->deleteById($_GET['id']);
 
-        // Anfrage an die URI /user weiterleiten (HTTP 302)
+        // Anfrage an die URI /verein weiterleiten (HTTP 302)
         header('Location: /verein');
     }
 }

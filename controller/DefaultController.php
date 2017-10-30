@@ -27,7 +27,7 @@ class DefaultController
     /**
      * Die index Funktion des DefaultControllers sollte in jedem Projekt
      * existieren, da diese ausgeführt wird, falls die URI des Requests leer
-     * ist. (z.B. http://my-project.local/). Weshalb das so ist, ist und wann
+     * ist. (z.B. http://vereine-be.local/). Weshalb das so ist, ist und wann
      * welcher Controller und welche Methode aufgerufen wird, ist im Dispatcher
      * beschrieben.
      */

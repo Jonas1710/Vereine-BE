@@ -15,11 +15,10 @@
 				Kategorie: <?php echo $verein->kategorie; ?>
 			</p>
 		</div>
-			<p id="beschreibung">
+			<p id="Beschreibung">
 				<?php echo $verein->beschreibung; ?>
 			</p>
-			<?php
-				echo "<a href=\"javascript:history.go(-1)\">zurück</a>";
-			 ?>
-
 </div>
+<?php
+	echo "<a href=\"javascript:history.go(-1)\">zurück</a>";
+ ?>
