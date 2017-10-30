@@ -7,6 +7,7 @@ require_once '../repository/VereinRepository.php';
  */
 class VereinController
 {
+    //Get: Liste aller Vereine
     public function index()
     {
         $vereinRepository = new VereinRepository();
@@ -18,6 +19,8 @@ class VereinController
         $view->display();
     }
 
+    //Get: Liste von Vereinen die zum Suchbegriff passen
+    //@param Get $searchTerm Suchbegriff
     public function search()
     {
       $vereinRepository = new VereinRepository();
@@ -30,6 +33,9 @@ class VereinController
       $view->display();
     }
 
+
+    //Get: Liste von Vereinen mit einer bestimmten Kategorie
+    //@param Get $kategorie bestimmte Kategorie
     public function category()
     {
       $vereinRepository = new VereinRepository();
@@ -42,6 +48,8 @@ class VereinController
       $view->display();
     }
 
+    //Get: Detail ansicht eines Vereins mit einer bestimmten id
+    //@param get $id bestimmte id
     public function detail()
     {
         $vereinRepository = new VereinRepository();
@@ -53,6 +61,9 @@ class VereinController
         $view->display();
     }
 
+
+    //Get: Update Formular eines Vereins mit einer bestimmten id und dessen Eigenschaften
+    //@param get $id bestimmte id
     public function update ()
     {
         $vereinRepository = new VereinRepository();
@@ -64,6 +75,7 @@ class VereinController
         $view->display();
     }
 
+    //Get: Create Formular eines Vereins
     public function create()
     {
         $view = new View('verein_create');
@@ -72,6 +84,8 @@ class VereinController
         $view->display();
     }
 
+
+    //Post: Lädt und validiert das Formular in die Datenbank
     public function doCreate()
     {
       if ($_POST['submit']) {
@@ -82,7 +96,7 @@ class VereinController
           $beschreibung = htmlspecialchars($_POST['beschreibung']);
 
 
-          //Fileupload wurde von W3C schools übernommen
+          
           $target_dir = "uploads/";
           $target_file = $target_dir . basename($_FILES["img"]["name"]);
           $uploadOk = 1;
@@ -190,7 +204,7 @@ class VereinController
           $beschreibung = htmlspecialchars($_POST['beschreibung']);
           $error_message = "";
 
-          //Fileupload wurde von W3C schools übernommen
+
           $target_dir = "uploads/";
           $target_file = $target_dir . basename($_FILES["img"]["name"]);
           $uploadOk = 1;
