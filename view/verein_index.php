@@ -1,3 +1,4 @@
+<input id="searchTerm" type="search" placeholder="Suchbegriff"><input id="searchButton" type="button" value="Suchen">
 <?php
   $counter = 2;
   echo "<table class='vereinList'>";
@@ -16,7 +17,11 @@
 <script>
   $(document).ready(function() {
       $(".clickableElement").click(function() {
-          window.location = $(this).data("href");
+        window.location = $(this).data("href");
+      });
+
+      $("#searchButton").click(function() {
+        window.location = "/verein/search?searchTerm=" + $("#searchTerm").val();
       });
   });
 </script>

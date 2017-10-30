@@ -88,4 +88,36 @@ class VereinRepository extends Repository
 
         return $rows;
     }
+
+    public function search($searchTerm)
+    {
+        $query = "SELECT * FROM {$this->tableName} WHERE kategorie LIKE ? OR name LIKE ?";
+
+        $statement = ConnectionHandler::getConnection()->prepare($query);
+        $searchTerm = "%".$searchTerm."%";
+        $statement->bind_param('ss', $searchTerm, $searchTerm);
+
+        // Das Statement absetzen
+        $statement->execute();
+
+        // Resultat der Abfrage holen
+        $result = $statement->get_result();
+        if (!$result) {
+            throw new Exception($statement->error);
+        }
+        $statement->execute();
+
+        $result = $statement->get_result();
+        if (!$result) {
+            throw new Exception($statement->error);
+        }
+
+        // Datensätze aus dem Resultat holen und in das Array $rows speichern
+        $rows = array();
+        while ($row = $result->fetch_object()) {
+            $rows[] = $row;
+        }
+
+        return $rows;
+    }
 }
