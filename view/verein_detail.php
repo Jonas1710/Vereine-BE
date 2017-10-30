@@ -22,7 +22,7 @@
 				Kategorie: <?php echo $verein->kategorie; ?>
 			</p>
 		</div>
-			<p id="Beschreibung">
+			<p id="DetailBeschreibung">
 				<?php echo $verein->beschreibung; ?>
 			</p>
 </div>

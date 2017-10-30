@@ -21,7 +21,11 @@
 		<div class="form-group">
 		  <label class="col-md-2 control-label" for="bild">Bild</label>
 		  <div class="col-md-4">
+<<<<<<< HEAD
 		  	<input id="bild" name="img" type="file" class="form-control input-md">
+=======
+		  	<input id="bild" name="bild" type="file" class="form-control input-md">
+>>>>>>> 92f97b60c1cbd9563985607bf4e291fb24db7b80
 		  </div>
 		</div>
 		<div class="form-group">
@@ -33,7 +37,7 @@
 		<div class="form-group">
 		  <label class="col-md-2 control-label" for="beschreibung">Beschreibung</label>
 		  <div class="col-md-4">
-		  	<textarea id="beschreibung" name="beschreibung" type="text" placeholder="Beschreibung" class="form-control input-md"></textarea>
+		  	<textarea id="beschreibung" name="beschreibung" placeholder="Beschreibung" class="form-control input-md"></textarea>
 		  </div>
 		</div>
 		<div class="form-group">

@@ -2,7 +2,7 @@
 <?php
   $counter = 2;
   echo "<table class='vereinList'>";
-  echo "<tr><th>Vereinsname</th><th>Kategorie</th><th>Gründungsjahr</th></tr>";
+  echo "<tr><th>Vereinsname</th><th>Kategorie</th><th>Gründungsjahr</th><th></th></tr>";
   foreach($vereine as $verein) {
     if($counter % 2 == 0) {
         echo "<tr class='evenElement clickableElement' data-href='/verein/detail?id=".$verein->id."'><td data-id=".$verein->id."><a href='/verein/detail?id=". $verein->id."'>" . $verein->name . " </a></td><td>". $verein->kategorie . "</td><td>". $verein->gründungsjahr ."</td><td><a href='/verein/delete?id=". $verein->id ."'>Löschen</a> | <a href='/verein/update?id=". $verein->id ."'>Bearbeiten</a></td></tr>";

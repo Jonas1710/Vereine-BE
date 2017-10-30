@@ -65,6 +65,10 @@ td, th {
     -ms-transform: translate(-50%, -50%);
 }
 
+.categoryLink:hover {
+  text-decoration: underline;
+}
+
 .overlay {
   position: absolute;
   bottom: 0;
@@ -101,7 +105,7 @@ td, th {
   margin-bottom: 15px;
 }
 
-#beschreibung {
+#DetailBeschreibung {
   width: 90%;
   float: none;
   margin: 20px;

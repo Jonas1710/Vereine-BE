@@ -1,9 +1,9 @@
 <form class="form-horizontal" action="/verein/doUpdate" method="post" enctype="multipart/form-data">
 	<div class="component" data-html="true">
 		<div class="form-group">
-		  <label class="col-md-2 control-label" for="id"></label>
+		  <label class="col-md-2 control-label"></label>
 		  <div class="col-md-4">
-		  	<input id="id" name="id" type="hidden" class="form-control input-md" value="<?php echo $verein->id ?>" maxlength="30">
+		  	<input id="id" name="id" type="hidden" class="form-control input-md" value="<?php echo $verein->id ?>">
 		  </div>
 		</div>
 		<div class="form-group">
@@ -27,7 +27,7 @@
 		<div class="form-group">
 		  <label class="col-md-2 control-label" for="bild">Bild</label>
 		  <div class="col-md-4">
-		  	<input id="bild" name="img" type="file" placeholder="img" class="form-control input-md" value="<?php echo $verein->bild ?>">
+		  	<input id="bild" name="img" type="file" class="form-control input-md">
 		  </div>
 		</div>
 		<div class="form-group">
@@ -39,11 +39,11 @@
 		<div class="form-group">
 		  <label class="col-md-2 control-label" for="beschreibung">Beschreibung</label>
 		  <div class="col-md-4">
-		  	<textarea id="beschreibung" name="beschreibung" type="text" placeholder="Beschreibung" class="form-control input-md"><?php echo $verein->beschreibung ?></textarea>
+		  	<textarea id="beschreibung" name="beschreibung" placeholder="Beschreibung" class="form-control input-md"><?php echo $verein->beschreibung ?></textarea>
 		  </div>
 		</div>
 		<div class="form-group">
-	      <label class="col-md-2 control-label" for="send">&nbsp;</label>
+	      <label class="col-md-2 control-label">&nbsp;</label>
 		  <div class="col-md-4">
 		    <input id="safe" name="safe" type="submit" value="Speichern" class="btn btn-primary">
 		  </div>
